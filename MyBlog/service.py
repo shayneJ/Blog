@@ -23,11 +23,11 @@ def getMenu(form):
     # cursor.execute(sql)
     # result = cursor.fetchall()
     # print (dict(result))
-    return result
+    return list(result)
 
 #主页文章列表
 def articleList(username):
     sql = "SELECT id,a.userId,title,tags,date,a.typeId,type,content,copyfrom,username FROM db_article a LEFT JOIN db_menu b ON a.userId = b.userId WHERE a.username='%s' "% \
             (username)
     result = MyBlog.models.db_article.objects.raw(sql); #xx.objects.raw()执行原始sql
-    return result
+    return list(result)

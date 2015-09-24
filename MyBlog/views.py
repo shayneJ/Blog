@@ -23,6 +23,8 @@ def login(request):
                     request.session['username'] = form["username"]
                     menuList = service.getMenu(form)
                     articleList = service.articleList(request.session.get('username', False))
+                    print(menuList)
+                    print(articleList)
                     return render_to_response('index.html',locals())
                 else:
                     return render_to_response('login.html',locals())

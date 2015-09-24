@@ -1,8 +1,10 @@
+{% load endless %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>拾年</title>
     {% include 'base.html' %}
+
     <link rel="shortcut icon" href="/Mystatic/img/favicon.png">
     <!-- siimple style -->
     <link href="/Mystatic/css/style.css" rel="stylesheet">
@@ -68,6 +70,7 @@
 
         <div class="main">
             <div class="main-left">
+            {% paginate 5 articleList %}
                 {% for i in articleList %}
                 <div class="panel panel-default">
                 <div class="panel-body">
@@ -129,25 +132,34 @@
                     </div>
                 </div>
                 </div>
-
                 {% endfor %}
+            {% show_more %}
             </div>
             </div><!--/.main-left -->
 
             <div class="main-right">
-                <div>
-                    <ul class="list-group">
-                        {% for i in menuList %}
-                        <a href="#" class="list-group-item {% ifequal  i.count  0 %}disabled{% endifequal %}">
-                            <span class="badge">{{ i.count }}</span>
-                            {{ i.type }}
-                        </a>
-                        {% endfor %}
-                    </ul>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <iframe width="100%" height="500" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=2172763902&verifier=24dcfc20&colors=d6f3f7,ffffff,666666,0082cb,eff7f9&dpc=1"></iframe>
+                    </div>
                 </div>
-                <div>
-                    <h3>我的标签</h3>
-                    <div id="my_words" class="myCloud"></div>
+{#                <div class="panel panel-default">#}
+{#                    <div class="panel-body">#}
+                        <ul class="list-unstyled">
+                            {% for i in menuList %}
+                            <a href="#" class="list-group-item {% ifequal  i.count  0 %}disabled{% endifequal %}">
+                                <span class="badge">{{ i.count }}</span>
+                                {{ i.type }}
+                            </a>
+                            {% endfor %}
+                        </ul>
+{#                    </div>#}
+{#                </div>#}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>我的标签</h3>
+                        <div id="my_words" class="myCloud"></div>
+                    </div>
                 </div>
             </div><!--/.main-right -->
         </div><!--/.main -->
