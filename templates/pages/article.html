@@ -1,0 +1,51 @@
+{% for i in articleList %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="">
+                        <span class="entry-date">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                            {{ i.date }}
+                        </span>
+                        <span class="author vcard">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Kan
+                        </span>
+                        <span class="comments-link">
+                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                            <span class="ds-thread-count" data-thread-key="25">8条评论</span>
+                        </span>
+            </div>
+            <div class="line01"></div>
+            <div class="">
+                <div>
+                    <h1><a href="#" rel="bookmark">{{ i.title }}</a></h1>
+                </div>
+                {#                        <div class="post-format-indicator">#}
+                {#                            <a class="entry-format" href="http://www.tmackan.com/article/2015/07/23/25/">#}
+                {#                                <span class="glyphicon glyphicon-file" aria-hidden="true"></span>#}
+                {#                            </a>#}
+                {#                        </div>#}
+
+                <div class="panel-body">
+                    {{ i.content }}
+                </div>
+            </div>
+            <div class="line01"></div>
+            <div class="">
+                <div class="tag">
+                            <span class="entry-categories">
+                                <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                                <a href="/articleClassfi/Java%E5%BC%80%E5%8F%91/" rel="category">{{ i.type }}</a>
+                            </span>
+                            <span class="entry-tags">
+                                <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+                                <a href="/articleTag/Java/" rel="tag"> {{ i.tags }}</a>
+                            </span>
+                </div>
+                <div class="share">
+                    {% include "pages/share.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
