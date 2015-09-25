@@ -7,7 +7,9 @@ from django.views.decorators.csrf import csrf_exempt
 from MyBlog import service
 import traceback
 import MyBlog
-# Create your views here.
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseRedirect
+
 @csrf_exempt
 def getLogin(request):
     return render_to_response('login.html',locals())
@@ -21,20 +23,28 @@ def login(request):
                 form = form.cleaned_data
                 if service.loginService(form):
                     request.session['username'] = form["username"]
-                    menuList = service.getMenu(form)
-                    articleList = service.articleList(request.session.get('username', False))
-                    print(menuList)
-                    print(articleList)
-                    return render_to_response('index.html',locals())
+                    return HttpResponseRedirect('/index/')
                 else:
                     return render_to_response('login.html',locals())
     except Exception as e:
         return print (e)
 
-    #return HttpResponse(service.loginService(request))
 
 @csrf_exempt
 def getIndex(request):
+    username = request.session.get('username', False)
+    menuList = service.getMenu(username)
+    article = service.articleList(username)
+    paginator = Paginator(article, 3) # 分页，每页3个
+    page = request.GET.get('page')
+    try:
+        articleList = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        articleList = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        articleList = paginator.page(paginator.num_pages)
     return render_to_response('index.html',locals())
 
 

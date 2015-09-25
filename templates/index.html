@@ -15,178 +15,69 @@
 
 </head>
 <body>
- <!-- Fixed navbar -->
+<!-- Fixed navbar -->
     <div class="body">
-        <div class="head">
-           <div class="jumbotron">
-              <div class="container">
-                  <h1>Hello, world!</h1>
-                  <p>...</p>
-              </div>
-           </div>
-
-           <div>
-               <nav class="navbar navbar-default">
-                  <div class="container-fluid">
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <a class="navbar-brand" href="#">Brand</a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            {% for i in menuList %}
-                                <li><a href="#">{{ i.type }}</a></li>
-                                <li role="separator" class="divider"></li>
-                            {% endfor %}
-                          </ul>
-                        </li>
-                      </ul>
-                      <form  class="navbar-form navbar-left" role="search">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search" >
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                </button>
-                            </span>
-                        </div>
-                      </form>
-                    </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container-fluid -->
-              </nav>
-           </div>
-        </div><!--/.head -->
-
+        {% include "pages/header.html" %}
 
         <div class="main">
             <div class="main-left">
-            {% paginate 5 articleList %}
-                {% for i in articleList %}
-                <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="">
-                        <span class="entry-date">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            {{ i.date }}
-                        </span>
-                        <span class="author vcard">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            Kan
-                        </span>
-                        <span class="comments-link">
-                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                            <span class="ds-thread-count" data-thread-key="25">8条评论</span>
-                        </span>
-                    </div>
-                    <div class="line01"></div>
-                    <div class="">
-                        <div>
-                            <h1><a href="#" rel="bookmark">{{ i.title }}</a></h1>
-                        </div>
-{#                        <div class="post-format-indicator">#}
-{#                            <a class="entry-format" href="http://www.tmackan.com/article/2015/07/23/25/">#}
-{#                                <span class="glyphicon glyphicon-file" aria-hidden="true"></span>#}
-{#                            </a>#}
-{#                        </div>#}
-
-                        <div class="panel-body">
-                            {{ i.content }}
-                        </div>
-                    </div>
-                    <div class="line01"></div>
-                    <div class="">
-                        <div class="tag">
-                            <span class="entry-categories">
-                                <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-                                <a href="/articleClassfi/Java%E5%BC%80%E5%8F%91/" rel="category">{{ i.type }}</a>
-                            </span>
-                            <span class="entry-tags">
-                                <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-                                <a href="/articleTag/Java/" rel="tag"> {{ i.tags }}</a>
-                            </span>
-                        </div>
-                        <div class="share">
-                            <!-- JiaThis Button BEGIN -->
-                        <div class="jiathis_style_24x24">
-                            <a class="jiathis_button_qzone"></a>
-                            <a class="jiathis_button_tsina"></a>
-                            <a class="jiathis_button_tqq"></a>
-                            <a class="jiathis_button_weixin"></a>
-                            <a class="jiathis_button_renren"></a>
-                            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-                            <a class="jiathis_counter_style"></a>
-                        </div>
-                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-                        <!-- JiaThis Button END -->
-                        </div>
-                    </div>
-                </div>
-                </div>
-                {% endfor %}
-            {% show_more %}
+                {% include "pages/article.html" %}
+                <div>{% include "pages/page.html" %}</div>
             </div>
-            </div><!--/.main-left -->
+        </div>
+        <!--/.main-left -->
 
-            <div class="main-right">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                    <iframe width="100%" height="500" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=2172763902&verifier=24dcfc20&colors=d6f3f7,ffffff,666666,0082cb,eff7f9&dpc=1"></iframe>
-                    </div>
+        <div class="main-right">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <iframe width="100%" height="500" class="share_self" frameborder="0" scrolling="no"
+                            src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=2172763902&verifier=24dcfc20&colors=d6f3f7,ffffff,666666,0082cb,eff7f9&dpc=1"></iframe>
                 </div>
-{#                <div class="panel panel-default">#}
-{#                    <div class="panel-body">#}
-                        <ul class="list-unstyled">
-                            {% for i in menuList %}
-                            <a href="#" class="list-group-item {% ifequal  i.count  0 %}disabled{% endifequal %}">
-                                <span class="badge">{{ i.count }}</span>
-                                {{ i.type }}
-                            </a>
-                            {% endfor %}
-                        </ul>
-{#                    </div>#}
-{#                </div>#}
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h3>我的标签</h3>
-                        <div id="my_words" class="myCloud"></div>
-                    </div>
+            </div>
+
+            <ul class="list-unstyled">
+                {% for i in menuList %}
+                    <a href="#" class="list-group-item {% ifequal  i.count  0 %}disabled{% endifequal %}">
+                        <span class="badge">{{ i.count }}</span>
+                        {{ i.type }}
+                    </a>
+                {% endfor %}
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>我的标签</h3>
+                    <div id="my_words" class="myCloud"></div>
                 </div>
-            </div><!--/.main-right -->
-        </div><!--/.main -->
-    </div><!--/.body -->
+            </div>
+        </div>
+        <!--/.main-right -->
+    </div>
+<!--/.main -->
+</div><!--/.body -->
 
 <script type="text/javascript">
-var word_list = [
-   {text: "ifxoxo.com", weight: 13, link: "http://ifxoxo.com/jquery-jqcloud.html"},
-   {text: "520xmn.com", weight: 10.5},
-   {text: "jquery", weight: 9.4},
-   {text: "jqcloud", weight: 8},
-   {text: "ifxoxo1", weight: 6.2},
-   {text: "ifxoxo2", weight: 5},
-   {text: "ifxoxo3", weight: 5},
-   {text: "Nam et", weight: 5},
-   {text: "Sapien", weight: 4},
-   {text: "Pellentesque", weight: 3},
-   {text: "et malesuada", weight: 3},
-   {text: "fames", weight: 2},
-   {text: "sit amet", weight: 2},
-   {text: "justo", weight: 1},
-   {text: "dictum", weight: 1},
-   {text: "Ut et leo", weight: 1},
- ];
- $(function() {
-   $("#my_words").jQCloud(word_list);
- });
+    var word_list = [
+        {text: "ifxoxo.com", weight: 13, link: "http://ifxoxo.com/jquery-jqcloud.html"},
+        {text: "520xmn.com", weight: 10.5},
+        {text: "jquery", weight: 9.4},
+        {text: "jqcloud", weight: 8},
+        {text: "ifxoxo1", weight: 6.2},
+        {text: "ifxoxo2", weight: 5},
+        {text: "ifxoxo3", weight: 5},
+        {text: "Nam et", weight: 5},
+        {text: "Sapien", weight: 4},
+        {text: "Pellentesque", weight: 3},
+        {text: "et malesuada", weight: 3},
+        {text: "fames", weight: 2},
+        {text: "sit amet", weight: 2},
+        {text: "justo", weight: 1},
+        {text: "dictum", weight: 1},
+        {text: "Ut et leo", weight: 1},
+    ];
+    $(function () {
+        $("#my_words").jQCloud(word_list);
+    });
 </script>
 </body>
 </html>

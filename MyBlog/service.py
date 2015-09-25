@@ -13,9 +13,9 @@ def loginService(form):
     return flag
 
 #得到用户基本数据
-def getMenu(form):
+def getMenu(username):
     sql = "SELECT b.typeId,b.type,count(c.title) AS count FROM db_user a LEFT JOIN db_menu b ON a.userId = b.userId LEFT JOIN db_article c ON b.typeId=c.typeId WHERE a.username='%s' GROUP BY b.type"% \
-            (form["username"] )
+            (username)
     result = MyBlog.models.db_menu.objects.raw(sql); #xx.objects.raw()执行原始sql
     # sql = "SELECT b.type,count(b.type) AS count FROM db_user a LEFT JOIN db_menu b ON a.userId = b.userId LEFT JOIN db_article c ON b.typeId=c.typeId WHERE a.username='%s' GROUP BY b.type"% \
     #         (form["username"] )
