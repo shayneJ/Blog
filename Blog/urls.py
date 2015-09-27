@@ -20,7 +20,7 @@ import Blog.settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     #登录页面
     url(r'^login/', MyBlog.views.getLogin),
     #登录操作

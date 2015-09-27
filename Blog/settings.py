@@ -39,7 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'MyBlog',
-    'endless_pagination',
+    'ckeditor',
+    'ckeditor_uploader',
+    'ckeditor_demo.demo_application',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,11 +89,11 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ssh',
+        'NAME': 'test',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'PORT': '3307'
     }
 }
 
@@ -118,3 +120,27 @@ STATIC_URL =  os.path.join(os.path.dirname(__file__), '/static/').replace('\\','
 MYSTATIC_URL =  os.path.join(os.path.dirname(__file__), '../Mystatic/').replace('\\','/')
 MEDIA_URL = os.path.join(os.path.dirname(__file__), '../media/').replace('\\','/')
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+CKEDITOR_UPLOAD_PATH = "article_images"
+
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console':{
+#             'level':'DEBUG',
+#             'class':'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'propagate': True,
+#             'level':'DEBUG',
+#         },
+#     }
+# }

@@ -1,4 +1,3 @@
-{% load endless %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,10 @@
         <div class="main">
             <div class="main-left">
                 {% include "pages/article.html" %}
+                {% if articleList %}
+                    <!-- 分页-->
                 <div>{% include "pages/page.html" %}</div>
+                {% endif %}
             </div>
         </div>
         <!--/.main-left -->

@@ -35,7 +35,7 @@ def getIndex(request):
     username = request.session.get('username', False)
     menuList = service.getMenu(username)
     article = service.articleList(username)
-    paginator = Paginator(article, 3) # 分页，每页3个
+    paginator = Paginator(article, 2) # 分页，每页3个
     page = request.GET.get('page')
     try:
         articleList = paginator.page(page)
