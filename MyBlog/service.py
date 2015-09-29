@@ -25,11 +25,11 @@ def getMenu(username):
     # print (dict(result))
     return list(result)
 
-#
 
 #主页文章列表
 def articleList(username):
-    sql = "SELECT id,a.userId,title,tags,date,a.typeId,type,content,copyfrom,username,hit,comment FROM db_article a LEFT JOIN db_menu b ON a.userId = b.userId and a.typeId = b.typeId WHERE a.username='%s' "% \
+    sql = "SELECT id,a.userId,title,tags,date,a.typeId,type,content,copyfrom,username,hit,comment,url FROM db_article a LEFT JOIN db_menu b ON a.userId = b.userId and a.typeId = b.typeId WHERE a.username='%s' "% \
             (username)
     result = MyBlog.models.db_article.objects.raw(sql); #xx.objects.raw()执行原始sql
     return list(result)
+

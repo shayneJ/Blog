@@ -40,8 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'MyBlog',
     'ckeditor',
-    'ckeditor_uploader',
-    'ckeditor_demo.demo_application',
+    # 'ckeditor_uploader',
+    # 'ckeditor_demo.demo_application',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,11 +89,11 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'NAME': 'ssh',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
-        'PORT': '3307'
+        'PORT': '3306'
     }
 }
 

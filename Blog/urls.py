@@ -25,6 +25,11 @@ urlpatterns = [
     url(r'^login/', MyBlog.views.getLogin),
     #登录操作
     url(r'^getLogin/$', MyBlog.views.login,name="getLogin"),
-    url(r'^index/$', MyBlog.views.getIndex,name="index1"),
+    url(r'^index$', MyBlog.views.getIndex),
+
+    url(r'^index/content$', MyBlog.views.getContent),
+
+
+    #静态文件
     url(r'^Mystatic/(?P<path>.*)$', 'django.views.static.serve', {'document_root': Blog.settings.MYSTATIC_URL}),
 ]
